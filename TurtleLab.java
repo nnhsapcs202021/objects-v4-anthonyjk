@@ -6,19 +6,27 @@ public class TurtleLab
     {
         // Turtles & Canvas
         World canvas = new World();
-        Turtle paint = new Turtle(canvas);
-        Turtle brush = new Turtle(canvas);
+        Turtle paint = new Turtle(canvas); // Paints the middle
+        Turtle brush = new Turtle(440, 225, canvas); // Brushes the outside
         // Turtle Settings + Extra
         paint.setPenColor(Color.RED);
-        paint.setPenWidth(10);
+        paint.setPenWidth(1);
         brush.setPenColor(Color.BLUE);
-        int timer = 250;
-        int[] penWidth = {1,2,4,8,16,32};
-        
-        while (timer != 0)
+        int repeater = 50; // How many times a shape is repeated
+        int offset = 5; // Offset degree after each shape
+        int sides = 8; // How many sides each shape should have.
+        int length = 50; // Length of each side of shape.
+        while (repeater != 0)
         {
-            paint.forward(25);
-            timer--;
+            for(int i = 0; i <= sides; i++) {
+                paint.forward(length);
+                brush.forward(length);
+                paint.turn(360 / sides);
+                brush.turn(360 / sides);
+            }
+            paint.turn(360/offset);
+            brush.turn(-360/offset);
+            repeater--;
         }
         
     }
