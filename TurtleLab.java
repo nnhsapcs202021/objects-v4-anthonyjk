@@ -6,11 +6,10 @@ public class TurtleLab
     {
         // Turtles & Canvas
         World canvas = new World();
-        Turtle paint = new Turtle(canvas); // Paints the middle
-        Turtle brush = new Turtle(440, 225, canvas); // Brushes the outside
+        Turtle paint = new Turtle(150, 250, canvas); // Paints the middle
+        Turtle brush = new Turtle(450, 250, canvas); // Brushes the outside
         // Turtle Settings + Extra
         paint.setPenColor(Color.RED);
-        paint.setPenWidth(1);
         brush.setPenColor(Color.BLUE);
         int repeater = 50; // How many times a shape is repeated
         int offset = 5; // Offset degree after each shape
@@ -20,12 +19,12 @@ public class TurtleLab
         {
             for(int i = 0; i <= sides; i++) {
                 paint.forward(length);
-                brush.forward(length);
+                brush.forward(length/2);
                 paint.turn(360 / sides);
-                brush.turn(360 / sides);
+                brush.turn(360 / sides / 2);
             }
             paint.turn(360/offset);
-            brush.turn(-360/offset);
+            brush.turn(180/offset);
             repeater--;
         }
         
